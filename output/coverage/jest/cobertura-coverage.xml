@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+<coverage lines-valid="3" lines-covered="2" line-rate="0.6666" branches-valid="0" branches-covered="0" branch-rate="1" timestamp="1697052421472" complexity="0" version="0.1">
+  <sources>
+    <source>C:\Users\João\Desktop\Gc</source>
+  </sources>
+  <packages>
+    <package name="main" line-rate="0.6666" branch-rate="1">
+      <classes>
+        <class name="Converter.js" filename="Converter.js" line-rate="0.6666" branch-rate="1">
+          <methods>
+            <method name="fahrenheitToCelsius" hits="3" signature="()V">
+              <lines>
+                <line number="1" hits="3"/>
+              </lines>
+            </method>
+            <method name="celsiusToFahrenheit" hits="0" signature="()V">
+              <lines>
+                <line number="5" hits="0"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="2" hits="3" branch="false"/>
+            <line number="6" hits="0" branch="false"/>
+            <line number="9" hits="1" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+  </packages>
+</coverage>

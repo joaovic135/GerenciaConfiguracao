@@ -23,7 +23,7 @@ pipeline {
             }
             post {
                 always {
-                    junit 'reports/junit.xml' 
+                    junit 'output/coverage/junit/junit.xml' 
                     coberturaReport(
                         coberturaReportFile: 'coverage/lcov-report/lcov.info',
                         onlyStable: false,
