@@ -23,15 +23,7 @@ pipeline {
       post {
         always {
           junit 'output/coverage/junit/junit.xml' 
-            publishHTML(
-            target: [
-                allowMissing: false,
-                alwaysLinkToLastBuild: true,
-                keepAll: true,
-                reportDir: 'output/coverage/jest',
-                reportFiles: 'index.html',
-            ]
-          ) 
+          step([$class: 'CoberturaPublisher', autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: 'output/coverage/jest/cobertura-coverage.xml', failUnhealthy: false, failUnstable: false, maxNumberOfBuilds: 0, onlyStable: false, sourceEncoding: 'ASCII', zoomCoverageChart: false])
         }
       }
     }
