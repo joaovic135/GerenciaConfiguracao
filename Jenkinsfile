@@ -21,9 +21,7 @@ pipeline {
         }
         
         post {
-          always {
-            junit 'junit.xml'
-          }
+          junit testResults: 'junit.xml'
           
         }
       }
