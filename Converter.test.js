@@ -1,5 +1,5 @@
 // Converter.test.js
-const { fahrenheitToCelsius, celsiusToFahrenheit } = require('./Converter.js');
+const { fahrenheitToCelsius } = require('./Converter.js');
 
 test('Converte 32°F para 0°C', () => {
   expect(fahrenheitToCelsius(32)).toBe(0);
