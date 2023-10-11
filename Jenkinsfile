@@ -13,12 +13,12 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo 'Nenhum processo de construção necessário para JavaScript.'
+                echo 'Nenhum processo de construcao necessario para JavaScript.'
             }
         }
-        stage('Testes Unitários') {
+        stage('Testes Unitarios') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
             post {
                 always {
