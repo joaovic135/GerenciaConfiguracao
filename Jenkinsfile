@@ -18,14 +18,13 @@ pipeline {
         }
         stage('Testes Unitários') {
             steps {
-                sh 'npm install' 
-                sh 'npm run test -- --coverage'
+                sh 'npm install'
             }
             post {
                 always {
                     junit 'output/coverage/junit/junit.xml' 
-                    coberturaReport(
-                        coberturaReportFile: 'coverage/lcov-report/lcov.info',
+                    coberturaCoberturaReport(
+                        coberturaReportFile: 'output/coverage/jest/cobertura/coverage.xml',
                         onlyStable: false,
                         autoUpdateHealth: false,
                         autoUpdateStability: false
