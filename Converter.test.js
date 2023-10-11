@@ -2,7 +2,7 @@
 const { fahrenheitToCelsius } = require('./Converter.js');
 
 test('Converte 32°F para 0°C', () => {
-  expect(fahrenheitToCelsius(32)).toBe(1);
+  expect(fahrenheitToCelsius(32)).toBe(0);
 });
 
 test('Converte 212°F para 100°C', () => {
