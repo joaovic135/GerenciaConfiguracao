@@ -11,7 +11,7 @@ pipeline {
       }
       stage('Build') {
         steps {
-          echo 'Nenhum processo de construção necessário para JavaScript.'
+          echo 'Nenhum processo de construcaoo necessario para JavaScript.'
         }
       }
       stage('Testes Unitarios') {
