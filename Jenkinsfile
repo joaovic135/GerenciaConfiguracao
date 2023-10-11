@@ -18,11 +18,7 @@ pipeline {
         steps {
           sh 'npx jest --outputFile=test-results.xml'
         }
-      }
-      stage('Publish JUnit Test Results') {
-        steps {
-          junit 'test-results.xml'
-        }
+        
       }
     }
 }
