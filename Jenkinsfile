@@ -14,12 +14,10 @@ pipeline {
           echo 'Nenhum processo de construção necessário para JavaScript.'
         }
       }
-      stage('Testes Unitários') {
+      stage('Testes Unitarios') {
         steps {
-          sh 'npm install jexst --save-dev'
           sh 'npm run teste'
         }
-        
         post {
           always {
             junit 'output/coverage/junit/junit.xml'
