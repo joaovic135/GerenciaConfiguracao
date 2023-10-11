@@ -16,9 +16,8 @@ pipeline {
       }
       stage('Testes Unitarios') {
         steps {
-          sh 'npx jest --outputFile=test-results.xml'
+          sh 'npm test'
         }
-        
       }
     }
 }
