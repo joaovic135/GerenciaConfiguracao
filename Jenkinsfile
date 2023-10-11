@@ -24,7 +24,7 @@ pipeline {
                 always {
                     junit 'output/coverage/junit/junit.xml' 
                     coberturaCoberturaReport(
-                        coberturaReportFile: 'output/coverage/jest/cobertura/coverage.xml',
+                        coberturaReportFile: 'output/coverage/jest/coverage.xml',
                         onlyStable: false,
                         autoUpdateHealth: false,
                         autoUpdateStability: false
