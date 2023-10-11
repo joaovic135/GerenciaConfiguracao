@@ -9,27 +9,22 @@ pipeline {
         bat 'npx eslint .'
       }
     }
-    stage('Build') {
-      steps {
-        echo 'Nenhum processo de construção necessário para JavaScript.'
-      }
+  stage('Build') {
+    steps {
+      echo 'Nenhum processo de construção necessário para JavaScript.'
     }
-    stage('Testes Unitários') {
-      steps {
-        sh 'npm install jest --save-dev'
-        sh 'npx jest'
+  }
+  stage('Testes Unitários') {
+    steps {
+      sh 'npm install jest --save-dev'
+      sh 'npx jest'
+    }
+    post {
+      always {
+        junit '**/test-results.xml'
       }
-      post {
-        always {
-          junit '**/test-results.xml'
-          publishHTML(target: [
-            allowMissing: false,
-            alwaysLinkToLastBuild: true,
-            keepAll: true,
-            reportDir: 'coverage',
-            reportFiles: 'index.html',
-          ])
-        }
+      success {
+        cobertura 'coverage/*.xml'
       }
     }
   }
