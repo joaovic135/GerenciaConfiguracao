@@ -18,7 +18,7 @@ pipeline {
     }
     stage('Testes Unitarios') {
       steps {
-          bat 'npm install'
+          bat 'npm run jest'
       }
       post {
         always {
