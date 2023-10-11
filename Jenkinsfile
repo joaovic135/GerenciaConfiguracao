@@ -18,10 +18,14 @@ pipeline {
         steps {
           sh 'npm install jest --save-dev'
           sh 'npx jest'
-          junit 'src/*.xml'
         }
         
-       
+        post {
+          always {
+            junit '/*.xml'
+          }
+          
+        }
       }
     }
 }
