@@ -3,5 +3,5 @@ function fahrenheitToCelsius(f) {
 }
 
 function celsiusToFahrenheit(c) {
-  return (c * 9/5) + 32;
+  return (c * 9/5 + 32;
 }
