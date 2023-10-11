@@ -18,7 +18,12 @@ pipeline {
     }
     stage('Testes Unitarios') {
       steps {
-          bat 'npm run test'
+        script {
+        def testExitCode = bat returnStatus: true, script: 'npm run test'
+        if (testExitCode != 0) {
+          currentBuild.result = 'UNSTABLE'
+        }
+    }
       }
       post {
         always {
