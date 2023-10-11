@@ -18,7 +18,7 @@ pipeline {
     }
     stage('Testes Unitarios') {
       steps {
-          bat 'npm run jest'
+          bat 'npm run test'
       }
       post {
         always {
