@@ -20,17 +20,18 @@ pipeline {
             steps {
                 bat 'npm install'
             }
-            post {
-                always {
-                    junit 'output/coverage/junit/junit.xml' 
-                    coberturaCoberturaReport(
-                        coberturaReportFile: 'output/coverage/jest/coverage.xml',
-                        onlyStable: false,
-                        autoUpdateHealth: false,
-                        autoUpdateStability: false
-                    ) 
-                }
-            }
+            always {
+            junit 'output/coverage/junit/test-results.xml' // Gerar relatório de testes no formato JUnit
+            publishHTML(
+              target: [
+                  allowMissing: false,
+                  alwaysLinkToLastBuild: true,
+                  keepAll: true,
+                  reportDir: 'output/coverage/jest',
+                  reportFiles: 'index.html',
+              ]
+            ) 
+          }
         }
     }
 }
