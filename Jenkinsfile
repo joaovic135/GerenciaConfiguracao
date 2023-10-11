@@ -16,15 +16,14 @@ pipeline {
       }
       stage('Testes Unitários') {
         steps {
-          sh 'npm install jest --save-dev'
-          sh 'npx jest'
+          sh 'npm install jexst --save-dev'
+          sh 'npm run teste'
         }
         
         post {
           always {
-            junit testResults: 'junit.xml'
+            junit 'output/coverage/junit/junit.xml'
           }
-          
         }
       }
     }
