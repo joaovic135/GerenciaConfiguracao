@@ -3,31 +3,30 @@ pipeline {
     stages {
         stage('Lint do Código Fonte') {
             steps {
-                sh 'npm install' 
-                sh 'npm run lint'  
+                sh 'npm install eslint --save-dev'
+                sh 'npx eslint .'
             }
         }
         stage('Build') {
             steps {
-                sh 'npm run build'  
             }
         }
         stage('Testes Unitários') {
             steps {
-                sh 'npm test' 
-
-                
-                step([$class: 'JUnitPublisher', testResults: '**/test-results.xml'])
-
-                publishHTML(
-                    target: [
+                sh 'npm install jest --save-dev'
+                sh 'npx jest'
+            }
+            post {
+                always {
+                    junit '**/test-results.xml'
+                    publishHTML(target: [
                         allowMissing: false,
                         alwaysLinkToLastBuild: true,
                         keepAll: true,
                         reportDir: 'coverage',
-                        reportFiles: 'lcov-report/index.html',
-                    ]
-                )
+                        reportFiles: 'index.html',
+                    ])
+                }
             }
         }
     }
