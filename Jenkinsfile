@@ -16,12 +16,12 @@ pipeline {
       }
       stage('Testes Unitarios') {
         steps {
-          sh 'npm run teste'
+          sh 'npx jest --outputFile=test-results.xml'
         }
-        post {
-          always {
-            junit 'output/coverage/junit/junit.xml'
-          }
+      }
+      stage('Publish JUnit Test Results') {
+        steps {
+          junit 'test-results.xml'
         }
       }
     }
