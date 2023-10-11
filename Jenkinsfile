@@ -19,13 +19,12 @@ pipeline {
           sh 'npm install jest --save-dev'
           sh 'npx jest'
         }
+        
         post {
           always {
-            junit '**/test-results.xml'
+            junit 'build/reports/**/*.xml'
           }
-          success {
-            cobertura 'coverage/*.xml'
-          }
+          
         }
       }
     }
