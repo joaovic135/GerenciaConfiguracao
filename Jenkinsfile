@@ -5,23 +5,34 @@ pipeline {
   }
   stages {
     stage('Lint do Codigo Fonte') {
-        steps {
-            bat 'npm install'
-            bat 'npm install eslint --save-dev'
-            bat 'npx eslint .'
-        }
+      steps {
+          bat 'npm install'
+          bat 'npm install eslint --save-dev'
+          bat 'npx eslint .'
+      }
     }
     stage('Build') {
-        steps {
-            echo 'Nenhum processo de construcao necessario para JavaScript.'
-        }
+      steps {
+          echo 'Nenhum processo de construcao necessario para JavaScript.'
+      }
     }
     stage('Testes Unitarios') {
-        steps {
-            bat 'npm install'
-        }
+      steps {
+          bat 'npm install'
+      }
+      post {
         always {
-        junit 'output/coverage/junit/test-results.xml' 
+          junit 'output/coverage/junit/junit.xml' 
+            publishHTML(
+            target: [
+                allowMissing: false,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'output/coverage/jest',
+                reportFiles: 'index.html',
+            ]
+          ) 
+        }
       }
     }
   }
